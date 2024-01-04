@@ -1,15 +1,10 @@
-// Signup.js
-
 import React, { useState } from 'react';
-import './signup.css'
+import '../Signup/signup.css'
 
-const Signup = () => {
+const Signin = () => {
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
-    address: '',
-    birthday: '',
   });
 
   const handleChange = (e) => {
@@ -21,7 +16,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/api/users/signup', {
+      const response = await fetch('http://localhost:8080/api/users/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,15 +40,6 @@ const Signup = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-      Full Name:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        </label>
-      <label>
         Email:
         <input
           type="email"
@@ -71,28 +57,10 @@ const Signup = () => {
           onChange={handleChange}
         />
       </label>
-      <label>
-        Address:
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Birthday:
-        <input
-          type="date"
-          name="birthday"
-          value={formData.birthday}
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit">Sign Up</button>
+      <button type="submit">Sign In</button>
       <h3 id='error'></h3>
     </form>
   );
 };
 
-export default Signup;
+export default Signin;
