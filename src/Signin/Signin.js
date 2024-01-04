@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//Reuse the CSS sheet
 import '../Signup/signup.css'
 
 const Signin = () => {
