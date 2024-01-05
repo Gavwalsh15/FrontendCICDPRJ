@@ -1,5 +1,6 @@
 import React from "react"
 import "./Home.css"
+import Product from "./Product";
 
 function Home() {
     return (
@@ -12,7 +13,8 @@ function Home() {
                   />
 
                 <div className = "home_row">
-                    {/*Product*/}           //product component
+                    <Product />
+                    {/*Product*/}
                 </div>
 
                 <div className = "home_row">
