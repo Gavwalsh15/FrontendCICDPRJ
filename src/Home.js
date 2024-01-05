@@ -3,11 +3,31 @@ import "./Home.css"
 
 function Home() {
     return (
-        <div>
+        <div className= "home" >
+            <div className= "home__container">
+                <img
+                  className = "home_background"
+                  src="https://images.pexels.com/photos/8941369/pexels-photo-8941369.jpeg"
+                  //alt""
+                  />
 
+                <div className = "home_row">
+                    {/*Product*/}           //product component
+                    {/*Product*/}
+                </div>
 
+                <div className = "home_row">
+                    {/*Product*/}
+                    {/*Product*/}
+                    {/*Product*/}
+                </div>
+
+                <div className = "home_row">
+                    {/*Product*/}
+                </div>
         </div>
+    </div>
     )
 }
 
-export default Home
+export default Home;
