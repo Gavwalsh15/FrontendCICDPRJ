@@ -35,5 +35,9 @@
 }
 
 .product > button {
-
+    background: blanchedalmond;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: blanchedalmond;
+    color: black;
 }
