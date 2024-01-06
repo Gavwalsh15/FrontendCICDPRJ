@@ -11,9 +11,9 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <h1>Sign Up</h1>
                 <Routes>
                     <Route path="/checkout" element={[<Header />, <h1>I am a checkout page</h1>]}/>
+                    <Route path="/signup" element={<><Header /><Signup /></>} />
                     <Route path="/" element={[<Header />, <Home />]}/>
                 </Routes>
             </div>

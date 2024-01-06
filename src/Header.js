@@ -7,6 +7,10 @@ function Header() {
             <Link to="/checkout">
                 <button className="basket_button">Go to Checkout</button>
             </Link>
+
+            <Link to="/signup">
+                <button className="sign_in_button">Sign In</button>
+            </Link>
         </div>
     );
 }
