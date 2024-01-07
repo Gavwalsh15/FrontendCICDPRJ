@@ -1,0 +1,10 @@
+.checkout,
+.checkout_title {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+}
+
+.checkout_title {
+    border-bottom: 1px solid lightgray
+}
