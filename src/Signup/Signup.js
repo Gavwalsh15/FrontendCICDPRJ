@@ -1,6 +1,7 @@
 // Signup.js
 
 import React, { useState } from 'react';
+import './signup.css'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -44,14 +45,14 @@ const Signup = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-      Name:
+      Full Name:
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
         />
-      </label>
+        </label>
       <label>
         Email:
         <input

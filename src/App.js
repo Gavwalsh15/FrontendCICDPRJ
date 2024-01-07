@@ -1,24 +1,42 @@
-//import logo from './logo.svg';
 import React from "react";
-import './App.css';
-import Signup from './Signup/Signup';
-import Header from "./Header";
-import Home from "./Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import "./App.css";
+import Signup from "./Signup/Signup";
+import Signin from "./Signin/Signin";
+import Home from "./Main/Home";
 
 
 function App() {
-    return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    <Route path="/checkout" element={[<Header />, <h1>I am a checkout page</h1>]}/>
-                    <Route path="/signup" element={<><Header /><Signup /></>} />
-                    <Route path="/" element={[<Header />, <Home />]}/>
-                </Routes>
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <div className="App">
+        <nav className="navbar">
+          <NavLink exact to="/" activeClassName="website-name">
+            <div className="website-name">WEBSITE</div>
+          </NavLink>
+          <ul class="sign">
+            <li>
+              <NavLink to="/signin" activeClassName="active">
+                Sign In
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/signup" activeClassName="active">
+                Sign Up
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
