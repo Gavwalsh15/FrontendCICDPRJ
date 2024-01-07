@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CreateAd.css";
 
-const CreateaAd = ({ loggedEmail  }) => {
+const CreateaAd = ({ loggedEmail }) => {
   const [formData, setFormData] = useState({
     title: "",
     sellerEmail: loggedEmail,
@@ -13,7 +13,9 @@ const CreateaAd = ({ loggedEmail  }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData({ ...formData, [name]: value });
+    
   };
 
   const handleSubmit = async (e) => {

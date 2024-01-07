@@ -10,27 +10,32 @@
     min-width: 100px;
     background-color: white;
     z-index: 1;
-}
-
-
-.product > img {
+  }
+  
+  .product > img {
     max-height: 200px;
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
-}
-
-.product_price {
-    margin-top: 5px;
-}
-
-.product_details {
+  }
+  
+  .product_details {
     height: 100px;
     margin-bottom: 15px;
-}
-
-.product > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product_price {
+    margin-top: 5px;
+    justify-self: center;
+  }
+  
+  .product > button {
     background: blanchedalmond;
     margin-top: 10px;
     color: black;
-}
+  }
+  

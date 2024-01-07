@@ -27,24 +27,24 @@ function App() {
     <Router>
       <div className="App">
         <nav className="navbar">
-          <NavLink to="/" activeClassName="website-name">
+          <NavLink to="/">
             <div className="website-name">WEBSITE</div>
           </NavLink>
           <ul className="sign">
             <li>
-              <NavLink to="/checkout" activeClassName="active">
+              <NavLink to="/checkout">
                 CHECK-OUT
               </NavLink>
             </li>
             {!isLoggedIn ? (
               <>
                 <li>
-                  <NavLink to="/signin" activeClassName="active">
+                  <NavLink to="/signin">
                     Sign In
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/signup" activeClassName="active">
+                  <NavLink to="/signup">
                     Sign Up
                   </NavLink>
                 </li>
@@ -55,7 +55,7 @@ function App() {
                   <button onClick={handleLogout}>Logout</button>
                 </li>
                 <li>
-                  <NavLink to="/createAd" activeClassName="active">
+                  <NavLink to="/createAd">
                     CreateAd
                   </NavLink>
                 </li>
