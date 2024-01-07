@@ -1,8 +1,6 @@
-// Signup.js
-
 import React, { useState } from 'react';
 
-const Signup = () => {
+const Signup = ({ setIsLoggedIn }, {setLoggedEmail}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +28,8 @@ const Signup = () => {
     
       if (response.ok) {
         console.log('User registered successfully');
+        setIsLoggedIn(true);
+        setLoggedEmail(formData.email);
       } else {
         console.error('Error registering user');
         document.getElementById('error').innerHTML = await response.text();

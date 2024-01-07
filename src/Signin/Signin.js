@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 //Reuse the CSS sheet
 import '../Signup/signup.css'
 
-const Signin = () => {
+const Signin = ({ setIsLoggedIn }, {setLoggedEmail}) => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -26,9 +26,11 @@ const Signin = () => {
             });
 
             if (response.ok) {
-                console.log('User registered successfully');
+                console.log('User signed in successfully');
+                setIsLoggedIn(true); //Could use token or whatever but that is effort 
+                setLoggedEmail(formData.email);
             } else {
-                console.error('Error registering user');
+                console.error('Error signing in');
                 document.getElementById('error').innerHTML = await response.text();
             }
         } catch (error) {
@@ -36,7 +38,6 @@ const Signin = () => {
             document.getElementById('error').innerHTML = error.message;
         }
     }
-
 
     return (
         <form onSubmit={handleSubmit}>
