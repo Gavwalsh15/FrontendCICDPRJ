@@ -37,6 +37,7 @@ function Home() {
           price={product.price}
           description={product.description}
           createDate={product.createDate}
+          addToCart={() => addToCart(product)}
         />
       ));
 

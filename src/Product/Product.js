@@ -1,7 +1,7 @@
 import React from "react";
 import "./Product.css";
 
-function Product({ sellerEmail, title, adImageLink, price, description, createDate }) {
+function Product({ sellerEmail, title, adImageLink, price, description, createDate, addToCart  }) {
   // Format the price to always have two decimal places
   const formattedPrice = Number(price).toFixed(2);
 
@@ -20,6 +20,7 @@ function Product({ sellerEmail, title, adImageLink, price, description, createDa
       </div>
       <img src={adImageLink} alt={title} />
       <button>Buy Now</button>
+        <button onClick={addToCart}>Add to Cart</button>
     </div>
   );
 }

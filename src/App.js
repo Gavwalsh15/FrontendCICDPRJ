@@ -13,6 +13,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedEmail, setLoggedEmail] = useState(null);
 
+  const [cart, setCart] = useState([]);
+
   const handleLogout = () => {
     setIsLoggedIn(false);
     setLoggedEmail(null);
@@ -22,6 +24,15 @@ function App() {
     setIsLoggedIn(true);
     setLoggedEmail(email);
   };
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter(item => item.id !== productId));
+  };
+
 
   return (
     <Router>
@@ -77,9 +88,11 @@ function App() {
             path="/signin"
             element={<Signin setIsLoggedIn={setIsLoggedIn} setLoggedEmail={setLoggedEmail}/>}
           />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/checkout" element={<Checkout cart={cart} removeFromCart={removeFromCart} />} />
+          <Route path="/" element={<Home addToCart={addToCart} />} />
           <Route path="/createAd" element={<CreateAd loggedEmail={loggedEmail}/>} />
+
+
         </Routes>
       </div>
     </Router>
