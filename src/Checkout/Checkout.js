@@ -10,6 +10,7 @@ function Checkout({ cart, removeFromCart }) {
                 {cart.map(item => (
                     <div key={item.id} className="checkout_item">
                         <h3>{item.title}</h3>
+                        <p>Price: ${item.price}</p> {/* Display the price */}
                         {/* Display other item details as needed */}
                         <button onClick={() => removeFromCart(item.id)}>Remove</button>
                     </div>
@@ -22,5 +23,6 @@ function Checkout({ cart, removeFromCart }) {
         </div>
     );
 }
+
 
 export default Checkout;
