@@ -1,11 +1,16 @@
 import React from "react";
 import "./Checkout.css";
 import "./Subtotal"
+import handleBuyNow from '../Checkout/PurchaseService';
 
 function Checkout({ cart, removeFromCart }) {
 
     const calculateTotal = (cartItems) => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
+    const onBuyNowClick = () => {
+        handleBuyNow(cart, calculateTotal);
     };
 
 
@@ -23,8 +28,9 @@ function Checkout({ cart, removeFromCart }) {
                     </div>
                 ))}
                 <div className="checkout_subtotal">
+                    <h2>The Subtotal</h2>
                     <h2>Total: ${calculateTotal(cart).toFixed(2)}</h2>
-                    <h2>The Subtotal here</h2>
+                    <button onClick={onBuyNowClick}>Buy Now</button>
                 </div>
             </div>
         </div>
