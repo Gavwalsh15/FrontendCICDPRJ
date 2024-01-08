@@ -3,6 +3,11 @@ import "./Checkout.css";
 import "./Subtotal"
 
 function Checkout({ cart, removeFromCart }) {
+
+    const calculateTotal = (cartItems) => {
+        return cartItems.reduce((total, item) => total + item.price, 0);
+    };
+
     return (
         <div className="checkout">
             <div className="checkout_viewbasket">
@@ -16,7 +21,7 @@ function Checkout({ cart, removeFromCart }) {
                     </div>
                 ))}
                 <div className="checkout_subtotal">
-                    {/* Subtotal component or logic here */}
+                    <h2>Total: ${calculateTotal(cart).toFixed(2)}</h2>
                     <h2>The Subtotal here</h2>
                 </div>
             </div>
