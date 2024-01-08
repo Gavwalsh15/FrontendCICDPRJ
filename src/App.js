@@ -26,12 +26,31 @@ function App() {
   };
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+      setCart(cart.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
   };
 
+
   const removeFromCart = (productId) => {
-    setCart(cart.filter(item => item.id !== productId));
+    setCart(cart.reduce((result, item) => {
+      if (item.id === productId) {
+        if (item.quantity > 1) {
+          result.push({ ...item, quantity: item.quantity - 1 });
+        }
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, []));
   };
+
+
 
 
   return (

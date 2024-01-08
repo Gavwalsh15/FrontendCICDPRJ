@@ -5,8 +5,9 @@ import "./Subtotal"
 function Checkout({ cart, removeFromCart }) {
 
     const calculateTotal = (cartItems) => {
-        return cartItems.reduce((total, item) => total + item.price, 0);
+        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
+
 
     return (
         <div className="checkout">
@@ -16,6 +17,7 @@ function Checkout({ cart, removeFromCart }) {
                     <div key={item.id} className="checkout_item">
                         <h3>{item.title}</h3>
                         <p>Price: ${item.price}</p> {/* Display the price */}
+                        <p>Quantity: {item.quantity}</p>
                         {/* Display other item details as needed */}
                         <button onClick={() => removeFromCart(item.id)}>Remove</button>
                     </div>
