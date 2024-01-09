@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Product from "../Product/Product";
 
-function Home() {
+function Home({ addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -36,6 +36,7 @@ function Home() {
           price={product.price}
           description={product.description}
           createDate={product.createDate}
+          addToCart={() => addToCart(product)}
         />
       ));
 
