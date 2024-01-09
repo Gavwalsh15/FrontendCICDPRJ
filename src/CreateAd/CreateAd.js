@@ -22,7 +22,7 @@ const CreateaAd = ({ loggedEmail }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/api/ad/create", {
+      const response = await fetch("http://localhost:8081/api/ad/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,6 +32,7 @@ const CreateaAd = ({ loggedEmail }) => {
 
       if (response.ok) {
         console.log("Ad created successfully");
+        window.location.href = "/";
       } else {
         console.error("Error Creating Ad");
         document.getElementById("error").innerHTML = await response.text();

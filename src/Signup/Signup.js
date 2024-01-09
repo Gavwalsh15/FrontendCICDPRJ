@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Signup = ({ setIsLoggedIn }, {setLoggedEmail}) => {
+const Signup = ({ setIsLoggedIn , setLoggedEmail}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,8 +28,12 @@ const Signup = ({ setIsLoggedIn }, {setLoggedEmail}) => {
     
       if (response.ok) {
         console.log('User registered successfully');
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('loggedEmail', formData.email);
         setIsLoggedIn(true);
         setLoggedEmail(formData.email);
+        window.location.href = '/';
+        
       } else {
         console.error('Error registering user');
         document.getElementById('error').innerHTML = await response.text();
