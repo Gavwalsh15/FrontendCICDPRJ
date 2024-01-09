@@ -50,7 +50,11 @@ function Product({ sellerEmail, title, adImageLink, price, description, createDa
         </p>
       </div>
       <img src={adImageLink} alt={title} />
+      <div>
       <button onClick={handleBuyNowClick}>Buy Now</button>
+      <br></br>
+      <button onClick={addToCart}>Add to Cart</button>
+      </div>
     </div>
   );
 }

@@ -1,27 +1,33 @@
-// purchaseService.js
-const handleBuyNow = async (cart, calculateTotal) => {
-    const totalAmount = calculateTotal(cart);
-
+const handleBuyNow = async (cart) => {
     try {
-        const response = await fetch('/buynow', {
-            method: 'POST',
+        for (const product of cart) {
+          const response = await fetch("http://localhost:8081/api/ad/buyproduct", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                items: cart,
-                total: totalAmount,
+              sellerEmail: product.sellerEmail,
+              buyerEmail: localStorage.getItem("loggedEmail"),
+              productTitle: product.title,
+              amount: product.price,
+              createDate: product.createDate,
+              time: new Date().toISOString(),
             }),
-        });
-
-        if (response.ok) {
-            console.log("Purchase successful");
-        } else {
-            console.error("Purchase failed");
+          });
+    
+          if (response.ok) {
+            console.log("Product purchased successfully");
+            window.location.href = "/";
+          } else {
+            console.error("Failed to purchase product");
+            
+          }
         }
-    } catch (error) {
-        console.error("Error:", error);
-    }
-};
+      } catch (error) {
+        console.error("Error during product purchase:", error);
+      }
+    };
+    
 
 export default handleBuyNow;
