@@ -6,8 +6,39 @@ function Product({ sellerEmail, title, adImageLink, price, description, createDa
   const formattedPrice = Number(price).toFixed(2);
 
   if (adImageLink === null || adImageLink === "") {
-    adImageLink = "https://as2.ftcdn.net/v2/jpg/00/89/55/15/1000_F_89551596_LdHAZRwz3i4EM4J0NHNHy2hEUYDfXc0j.jpg"
+    adImageLink = "https://as2.ftcdn.net/v2/jpg/00/89/55/15/1000_F_89551596_LdHAZRwz3i4EM4J0NHNHy2hEUYDfXc0j.jpg";
   }
+
+  const handleBuyNowClick = async () => {
+    console.log(sellerEmail);
+    try {
+      const response = await fetch("http://localhost:8081/api/ad/buyproduct", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sellerEmail: sellerEmail,
+          buyerEmail: localStorage.getItem('loggedEmail'),
+          productTitle: title,
+          amount: price,
+          createDate : createDate,
+          time: new Date().toISOString(),
+        }),
+      });
+
+
+      if (response.ok) {
+        console.log("Product purchased successfully");
+      
+      } else {
+        console.error("Failed to purchase product");
+       
+      }
+    } catch (error) {
+      console.error("Error during product purchase:", error);
+    }
+  };
 
   return (
     <div className="product">
@@ -19,8 +50,7 @@ function Product({ sellerEmail, title, adImageLink, price, description, createDa
         </p>
       </div>
       <img src={adImageLink} alt={title} />
-      <button>Buy Now</button>
-        <button onClick={addToCart}>Add to Cart</button>
+      <button onClick={handleBuyNowClick}>Buy Now</button>
     </div>
   );
 }

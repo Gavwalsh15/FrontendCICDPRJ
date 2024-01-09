@@ -6,10 +6,9 @@ function Home({ addToCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from your API
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/ad/getads');
+        const response = await fetch('http://localhost:8081/api/ad/getads');
         if (response.ok) {
           const data = await response.json();
           setProducts(data);

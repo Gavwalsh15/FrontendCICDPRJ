@@ -10,12 +10,20 @@ import Checkout from "./Checkout/Checkout";
 import CreateAd from "./CreateAd/CreateAd";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loggedEmail, setLoggedEmail] = useState(null);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem('isLoggedIn') === 'true'
+  );
+  const [loggedEmail, setLoggedEmail] = useState(
+    localStorage.getItem('loggedEmail')
+  );
+  
 
   const [cart, setCart] = useState([]);
 
   const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('loggedEmail');
     setIsLoggedIn(false);
     setLoggedEmail(null);
   };
