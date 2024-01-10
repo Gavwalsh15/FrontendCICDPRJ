@@ -27,6 +27,7 @@ function Checkout({ cart, removeFromCart }) {
           <h2>The Subtotal</h2>
           <h2>Total: ${calculateTotal(cart).toFixed(2)}</h2>
           <button onClick={onBuyNowClick}>Buy Now</button>
+          <h3 id="error"></h3>
         </div>
       </div>
     </div>

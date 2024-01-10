@@ -21,7 +21,7 @@ const handleBuyNow = async (cart) => {
             window.location.href = "/";
           } else {
             console.error("Failed to purchase product");
-            
+            document.getElementById("error").innerHTML = await response.text();
           }
         }
       } catch (error) {
